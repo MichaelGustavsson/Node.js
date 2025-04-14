@@ -1,0 +1,5 @@
+Log 1 igen
+Log 2 igen
+Log 3
+Log 4
+Kolla jag uppdaterade filen...
