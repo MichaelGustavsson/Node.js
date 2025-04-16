@@ -10,14 +10,17 @@ const server = http.createServer(async (req, res) => {
   const jsonHandler = new JsonHandler('data', 'vehicles.json');
   vehicles = await jsonHandler.readFromFile();
 
+  let body = [];
   req
     .on('data', (chunk) => {
-      console.log(chunk);
+      body.push(chunk);
     })
     .on('end', async () => {
+      body = Buffer.concat(body).toString();
+
       const requestUrl = new URL(`${headers.host}${url}`);
       const id = requestUrl.searchParams.get('id');
-      console.log(id);
+
       // Skapa en variabel för statuskoder...
       let statusCode = 404;
       // Skapa ett objekt för retur data...
@@ -40,6 +43,26 @@ const server = http.createServer(async (req, res) => {
         responseModel.statusCode = 200;
         responseModel.items = 1;
         responseModel.data = vehicles.find((vehicle) => vehicle.id === id);
+      } else if (method === 'POST' && url === '/vehicles') {
+        const { manufacturer, model } = JSON.parse(body);
+        if (!manufacturer || !model) {
+          statusCode = 400;
+          responseModel.error = 'Information som är vital saknas!';
+        } else {
+          vehicles.push({
+            id: uuidv4().replaceAll('-', ''),
+            manufacturer,
+            model,
+          });
+
+          await jsonHandler.writeToFile(JSON.stringify(vehicles));
+          statusCode = 201;
+          responseModel.success = true;
+          responseModel.statusCode = 201;
+          responseModel.data = vehicles.at(-1);
+        }
+      } else if (method === 'DELETE' && url.includes('/vehicles')) {
+      } else if (method === 'PUT' && url.includes('/vehicles')) {
       }
 
       res.writeHead(statusCode, {
