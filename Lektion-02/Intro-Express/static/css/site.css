@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,600;0,700;1,100;1,300;1,400;1,600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #f4f4f4;
+  background-color: #263238;
+}
+
+main {
+  text-align: center;
+}
+h1 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  border: solid 1px #fb8c00;
+  background: url('/images/spring-2.jpg') no-repeat center center/cover;
+  width: 768px;
+  height: 600px;
+}

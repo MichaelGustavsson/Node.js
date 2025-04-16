@@ -62,7 +62,26 @@ const server = http.createServer(async (req, res) => {
           responseModel.data = vehicles.at(-1);
         }
       } else if (method === 'DELETE' && url.includes('/vehicles')) {
+        const list = vehicles.filter((vehicle) => vehicle.id !== id);
+        await jsonHandler.writeToFile(JSON.stringify(list));
+        statusCode = 204;
+        responseModel.success = true;
+        responseModel.statusCode = 204;
       } else if (method === 'PUT' && url.includes('/vehicles')) {
+        const { manufacturer, model } = JSON.parse(body);
+        if (!manufacturer || !model) {
+          statusCode = 404;
+          responseModel.error = 'Information saknas!';
+        } else {
+          const vehicle = vehicles.find((v) => v.id === id);
+          vehicle.manufacturer = manufacturer;
+          vehicle.model = model;
+          const list = vehicles.filter((v) => v.id !== id);
+          list.push(vehicle);
+          await jsonHandler.writeToFile(JSON.stringify(list));
+          statusCode = 204;
+          responseModel.success = true;
+        }
       }
 
       res.writeHead(statusCode, {
@@ -77,5 +96,5 @@ const server = http.createServer(async (req, res) => {
 
 const PORT = 5001;
 server.listen(PORT, () =>
-  console.log(`Servern är upp och lyssnar på url http://localhost:${PORT}`)
+  console.log(`Servern är uppe och lyssnar på url http://localhost:${PORT}`)
 );
