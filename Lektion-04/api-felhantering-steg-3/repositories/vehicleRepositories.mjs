@@ -6,7 +6,7 @@ export default class VehicleRepository {
   #storage = undefined;
 
   constructor() {
-    this.#storage = new Storage('db', 'vehicles.json');
+    this.#storage = new Storage('data', 'vehicles.json');
   }
 
   async listAll() {
