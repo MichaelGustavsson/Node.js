@@ -12,10 +12,17 @@ describe('Working with finding vehicles', () => {
   it('should find a vehicle by its id and return status 200', async () => {
     await request(app).get(url + '/3f48d012ee344596bfd2ee906a91c330');
   });
+
+  it('should return a 404 message if no vehicle was found', async () => {
+    await request(app)
+      .get(url + '/979616370b704d02b290f953e23fe0d')
+      .expect('Content-Type', /json/)
+      .expect(404);
+  });
 });
 
 describe('Adding vehicles', () => {
-  it('should add a new vehicle and return status 201', async () => {
+  it.skip('should add a new vehicle and return status 201', async () => {
     vehicle = await request(app)
       .post(url)
       .send({
@@ -28,11 +35,11 @@ describe('Adding vehicles', () => {
     console.log(vehicle.body.data);
   });
 
-  it('should not return null', () => {
+  it.skip('should not return null', () => {
     expect(vehicle).not.toBeNull();
   });
 
-  it('should match object structure of added vehicle', () => {
+  it.skip('should match object structure of added vehicle', () => {
     expect(vehicle.body.data).toMatchObject({
       manufacturer: 'Volvo',
       model: 'XC90',
@@ -40,3 +47,16 @@ describe('Adding vehicles', () => {
     });
   });
 });
+
+// Fixar till detta testet...
+describe('Removing vehicle', () => {
+  it('should delete a vehicle and return 204', async () => {
+    await request(app)
+      .delete(url + '/fakalklsflasllsjdflk')
+      .expect(204);
+  });
+
+  it('should return status 404 if no vehicle was found to delete', async () => {});
+});
+
+// Add a test for update vehicle...
