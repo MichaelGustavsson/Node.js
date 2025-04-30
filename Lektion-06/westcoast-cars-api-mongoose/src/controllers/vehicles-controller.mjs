@@ -26,7 +26,7 @@ export const updateVehicle = catchErrorAsync(async (req, res) => {
   res.status(204).end();
 });
 
-// export const updateVehicleModelYear = catchErrorAsync(async (req, res) => {
-//   await new VehicleRepository().update(req.body.modelYear, req.params.id);
-//   res.status(204).end();
-// });
+export const clearDatabase = catchErrorAsync(async (req, res) => {
+  await new VehicleRepository().clear();
+  res.status(204).end();
+});

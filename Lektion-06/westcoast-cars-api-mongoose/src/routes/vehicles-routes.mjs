@@ -5,14 +5,16 @@ import {
   addVehicle,
   deleteVehicle,
   updateVehicle,
-  // updateVehicleModelYear,
+  clearDatabase,
 } from '../controllers/vehicles-controller.mjs';
 
 const vehicleRouter = express.Router();
 
-// TODO: Måste fixa felhantering med storage.mjs.
-
-vehicleRouter.route('/').get(listAllVehicles).post(addVehicle);
+vehicleRouter
+  .route('/')
+  .get(listAllVehicles)
+  .post(addVehicle)
+  .delete(clearDatabase);
 
 vehicleRouter
   .route('/:id')

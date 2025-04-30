@@ -19,18 +19,12 @@ export default class VehicleRepository {
 
   async add(vehicle) {
     const { manufacturer, model, modelYear } = vehicle;
-
-    if (!manufacturer || !model || !modelYear) {
-      throw new AppError('Information saknas för att spara bilen!', 400);
-    }
-
     const result = await Vehicle.create({
       manufacturer,
       model,
       modelYear,
     });
 
-    console.log(result);
     return result;
   }
 
@@ -40,5 +34,9 @@ export default class VehicleRepository {
 
   async update(data, id) {
     await Vehicle.findByIdAndUpdate(id, data, { new: true });
+  }
+
+  async clear() {
+    await Vehicle.deleteMany();
   }
 }
