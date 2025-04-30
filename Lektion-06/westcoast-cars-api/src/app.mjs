@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import { logger } from './middleware/logger.mjs';
 import vehicleRouter from './routes/vehicles-routes.mjs';
+import customerRouter from './routes/customers-routes.mjs';
 import AppError from './models/appError.mjs';
 import errorHandler from './middleware/errorHandler.mjs';
 import connectDb from './db/db.mjs';
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use('/api/v1/vehicles', vehicleRouter);
+app.use('/api/v1/customers', customerRouter);
 
 app.all('*', (req, res, next) => {
   next(
