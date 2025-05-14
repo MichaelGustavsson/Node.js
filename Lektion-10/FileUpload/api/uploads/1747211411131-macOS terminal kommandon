@@ -1,0 +1,4 @@
+macOS terminal kommandon
+
+Kopiera filer till katalog
+cp -R katalog/* målkatalog
