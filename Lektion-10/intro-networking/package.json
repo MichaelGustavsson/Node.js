@@ -1,0 +1,21 @@
+{
+  "name": "intro-networking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "node-1": "nodemon server.mjs 3000 http://localhost:3000",
+    "node-2": "nodemon server.mjs 3001 http://localhost:3001",
+    "node-3": "nodemon server.mjs 3002 http://localhost:3002",
+    "node-4": "nodemon server.mjs 3003 http://localhost:3003"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
