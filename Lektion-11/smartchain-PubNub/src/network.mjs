@@ -6,10 +6,10 @@ const CHANNELS = {
 };
 
 const credentials = {
-  publishKey: 'pub-c-6041c693-03e7-4bdb-b7e5-47550b48e1e4',
-  subscribeKey: 'sub-c-749fdeea-12c6-4c45-8462-56345e74fa71',
-  secretKey: 'sec-c-MzVhZTdmNmEtNTQ5Ni00NmY3LTk0ZjAtMGVjNDEwYjlmYWYx',
-  userId: 'michael-smartchain',
+  publishKey: process.env.PUB_KEY,
+  subscribeKey: process.env.SUB_KEY,
+  secretKey: process.env.SEC_KEY,
+  userId: process.env.USER_ID,
 };
 
 export default class Network {
@@ -17,7 +17,7 @@ export default class Network {
     this.blockchain = blockchain;
     this.pubnub = new PubNub(credentials);
     this.pubnub.subscribe({ channels: Object.values(CHANNELS) });
-    this.pubnub.addListener(this.handleMessage);
+    this.pubnub.addListener(this.handleMessage());
   }
 
   broadcast() {
@@ -27,7 +27,7 @@ export default class Network {
     });
   }
 
-  handleMessage(channel, message) {
+  handleMessage() {
     return {
       message: (msgObject) => {
         const { channel, message } = msgObject;

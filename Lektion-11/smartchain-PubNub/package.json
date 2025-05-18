@@ -7,8 +7,7 @@
     "test": "vitest",
     "start": "node src/server.mjs",
     "dev-node": "cross-env GENERATE_NODE_PORT='true' nodemon src/server.mjs",
-    "dev": "npm run start-redis && nodemon src/server.mjs",
-    "start-redis": "redis-server --daemonize yes"
+    "dev": "nodemon src/server.mjs"
   },
   "keywords": [],
   "author": "",
