@@ -1,29 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
-import { verifySignature } from '../../utilities/keyManager.mjs';
 
 export default class Transaction {
   constructor({ sender, recipient, amount }) {
     this.id = uuidv4().replaceAll('-', '');
     this.outputMap = this.createOutputMap({ sender, recipient, amount });
     this.input = this.createInput({ sender, outputMap: this.outputMap });
-  }
-
-  static validate(transaction) {
-    const {
-      input: { address, amount, signature },
-      outputMap,
-    } = transaction;
-
-    const total = Object.values(outputMap).reduce(
-      (sum, amount) => sum + amount
-    );
-
-    if (amount !== total) return false;
-
-    if (!verifySignature({ publicKey: address, data: outputMap, signature }))
-      return false;
-
-    return true;
   }
 
   createOutputMap({ sender, recipient, amount }) {
