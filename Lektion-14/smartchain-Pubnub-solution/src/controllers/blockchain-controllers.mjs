@@ -10,7 +10,7 @@ export const addBlock = (req, res) => {
 
   blockChain.addBlock({ data });
 
-  server.broadcast();
+  server.broadcastChain();
 
   res
     .status(201)

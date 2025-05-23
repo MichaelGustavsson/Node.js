@@ -7,9 +7,13 @@ import TransactionPool from './models/wallet/TransactionPool.mjs';
 import Wallet from './models/wallet/Wallet.mjs';
 
 export const blockChain = new Blockchain();
-export const server = new networkServer({ blockchain: blockChain });
 export const transactionPool = new TransactionPool();
 export const wallet = new Wallet();
+export const server = new networkServer({
+  blockChain,
+  transactionPool,
+  wallet,
+});
 
 const DEFAULT_PORT = 3000;
 const ROOT_NODE = `http://localhost:${DEFAULT_PORT}`;
@@ -19,11 +23,18 @@ app.use('/api/blocks', blockchainRoutes);
 app.use('/api/wallet', transactionRoutes);
 
 const synchronize = async () => {
-  const response = await fetch(`${ROOT_NODE}/api/blocks`);
+  let response = await fetch(`${ROOT_NODE}/api/blocks`);
   if (response) {
     const result = await response.json();
     console.log('Replacing chain on sync with:', result.data.chain);
     blockChain.replaceChain(result.data.chain);
+  }
+
+  response = await fetch(`${ROOT_NODE}/api/wallet/transactions`);
+  if (response) {
+    const result = await response.json();
+    console.log('Replacing transactionPool map on sync with', result.data);
+    transactionPool.replaceMap(result.data);
   }
 };
 

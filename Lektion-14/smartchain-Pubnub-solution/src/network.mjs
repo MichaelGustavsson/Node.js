@@ -3,6 +3,7 @@ import PubNub from 'pubnub';
 const CHANNELS = {
   TEST: 'TEST',
   BLOCKCHAIN: 'SMARTCHAIN',
+  TRANSACTION: 'TRANSACTION',
 };
 
 const credentials = {
@@ -13,19 +14,27 @@ const credentials = {
 };
 
 export default class Network {
-  constructor({ blockchain, transactionPool }) {
+  constructor({ blockchain, transactionPool, wallet }) {
     this.blockchain = blockchain;
     this.transactionPool = transactionPool;
+    this.wallet = wallet;
 
     this.pubnub = new PubNub(credentials);
     this.pubnub.subscribe({ channels: Object.values(CHANNELS) });
     this.pubnub.addListener(this.handleMessage());
   }
 
-  broadcast() {
+  broadcastChain() {
     this.publish({
       channel: CHANNELS.BLOCKCHAIN,
       message: JSON.stringify(this.blockchain.chain),
+    });
+  }
+
+  broadcastTransaction(transaction) {
+    this.publish({
+      channel: CHANNELS.TRANSACTION,
+      message: JSON.stringify(transaction),
     });
   }
 
@@ -42,6 +51,15 @@ export default class Network {
         switch (channel) {
           case CHANNELS.BLOCKCHAIN:
             this.blockchain.replaceChain(msg);
+            break;
+          case CHANNELS.TRANSACTION:
+            if (
+              !this.transactionPool.transactionExists({
+                address: this.wallet.publicKey,
+              })
+            ) {
+              this.transactionPool.addTransaction(msg);
+            }
             break;
           default:
             return;

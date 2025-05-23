@@ -1,4 +1,4 @@
-import { transactionPool, wallet } from '../server.mjs';
+import { transactionPool, wallet, server } from '../server.mjs';
 
 export const addTransaction = (req, res) => {
   const { amount, recipient } = req.body;
@@ -19,6 +19,7 @@ export const addTransaction = (req, res) => {
   }
 
   transactionPool.addTransaction(transaction);
+  server.broadcastTransaction(transaction);
 
   res.status(201).json({ success: true, statusCode: 201, data: transaction });
 };
