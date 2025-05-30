@@ -8,7 +8,7 @@ Vi har redan implementerat validering av varje block i blockkedjan där vi kan k
 
 #### isValid()
 
-- ✅ Genesis blocke är OK och är det första blocket i vår blockkedja
+- ✅ Genesis blocket är OK och är det första blocket i vår blockkedja
 - ✅ Föregående blocks hash är kopplat till nästa blocks lasthash
 - ✅ Svårighetsgraden av framtagning av ett block fungerar, dvs att tiden den tar att skapa ett block sköts dynamiskt baserat på tiden som vi satt upp.
 - ✅ Genererad hash är validerad
@@ -16,7 +16,7 @@ Vi har redan implementerat validering av varje block i blockkedjan där vi kan k
 ### Validering av transaktionerna som finns i blocken
 Vi kommer att skapa en metod validateTransactionData() i vår klass Blockchain som kommer att se till att regler följs för transaktionerna
 
-- ❗️Varje transaktion måste vara korrekt formaterat
+- ❗️Varje transaktions outputMap struktur måste vara korrekt formaterat
 - ❗️Endast en belöningstransaktion får finnas per block
 - ❗️Balansen ska vara korrekt baserat på vår input struktur och dess värden i blockkedjan
 - ❗️Varje transaktion måste vara unik i varje block, det vill säga det får inte finnas några dubbletter av transaktioner
