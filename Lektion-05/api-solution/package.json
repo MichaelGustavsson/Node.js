@@ -1,0 +1,21 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.mjs",
+  "scripts": {
+    "dev": "nodemon server.mjs",
+    "start": "NODE_ENV=production node server.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^4.18.2",
+    "uuid": "^11.1.0"
+  }
+}

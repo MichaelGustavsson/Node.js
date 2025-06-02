@@ -1,0 +1,10 @@
+Method: GET Url: /api/v1/vehicles Date: 2025-04-25 Time: 14:45:39 Success: undefined - Message: Error: ENOENT: no such file or directory, open '/Users/michaelgustavsson/Documents/Development/Courses/Node/Working-Code/Lektion-05/api/db/vehicles.json'
+Method: GET Url: /api/v1/vehicles Date: 2025-04-25 Time: 14:45:42 Success: undefined - Message: Error: ENOENT: no such file or directory, open '/Users/michaelgustavsson/Documents/Development/Courses/Node/Working-Code/Lektion-05/api/db/vehicles.json'
+Method: GET Url: /api/v1/vehicles Date: 2025-04-25 Time: 14:45:43 Success: undefined - Message: Error: ENOENT: no such file or directory, open '/Users/michaelgustavsson/Documents/Development/Courses/Node/Working-Code/Lektion-05/api/db/vehicles.json'
+Method: GET Url: /api/v1/vehicles Date: 2025-04-25 Time: 14:45:44 Success: undefined - Message: Error: ENOENT: no such file or directory, open '/Users/michaelgustavsson/Documents/Development/Courses/Node/Working-Code/Lektion-05/api/db/vehicles.json'
+Method: GET Url: /api/v1/vehicles Date: 2025-04-25 Time: 14:55:36 Success: undefined - Message: path is not defined
+Method: GET Url: /api/v1/vehicle Date: 2025-04-25 Time: 14:58:12 Success: undefined - Message: Vi kan tyvärr inte hitta resursen som du söker, /api/v1/vehicle
+Method: GET Url: /api/v1/vehicle Date: 2025-04-25 Time: 14:59:27 Success: undefined - Message: Vi kan tyvärr inte hitta resursen som du söker, /api/v1/vehicle
+Method: GET Url: /api/v1/vehicle Date: 2025-04-25 Time: 14:59:45 Success: undefined - Message: Vi kan tyvärr inte hitta resursen som du söker, /api/v1/vehicle
+Method: GET Url: /api/v1/vehicle Date: 2025-04-25 Time: 15:00:34 Success: false - Message: Vi kan tyvärr inte hitta resursen som du söker, /api/v1/vehicle
+Method: GET Url: /api/v1/vehicle Date: 2025-04-28 Time: 09:21:48 Success: false - Message: Vi kan tyvärr inte hitta resursen som du söker, /api/v1/vehicle
