@@ -1,0 +1,24 @@
+{
+  "vehicles": [
+    {
+      "id": 1,
+      "registrationNumber": "ABC123",
+      "manufacturer": "Fiat",
+      "model": "Punto"
+    },
+    {
+      "registrationNumber": "DEF456",
+      "manufacturer": "Volvo",
+      "model": "XC90",
+      "modelYear": 2021,
+      "id": 2
+    },
+    {
+      "registrationNumber": "GHI789",
+      "manufacturer": "Ford",
+      "model": "Fusion",
+      "modelYear": 2011,
+      "id": 3
+    }
+  ]
+}
