@@ -45,7 +45,7 @@ Server is up and running on http://localhost:5001 in production mode
 
 tryck Ctrl+c för att avsluta applikationen
 
-Skriv nu följande kommando för att testa utveclingsmiljön
+Skriv nu följande kommando för att testa utvecklingsmiljön
 
 `npm run dev`
 Nu bör följande utskrift synas:
