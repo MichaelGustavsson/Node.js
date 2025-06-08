@@ -13,15 +13,15 @@ Projektet har följande _Best Practice_ struktur:
     - 📄 config.env
   - 📁 src
     - 📁 controllers
-      📁 db
-      📁 logs
-      📁 middleware
-      📁 models
-      📁 repositories
-      📁 routes
-      📁 utilities
-      📄 app.mjs
-      📄 server.mjs
+    - 📁 db
+    - 📁 logs
+    - 📁 middleware
+    - 📁 models
+    - 📁 repositories
+    - 📁 routes
+    - 📁 utilities
+    - 📄 app.mjs
+    - 📄 server.mjs
   - 📄 .gitignore
   - 📄 package.json
 
