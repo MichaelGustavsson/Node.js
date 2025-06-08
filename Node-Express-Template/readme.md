@@ -49,11 +49,17 @@ Skriv nu följande kommando för att test utveclingsmiljön
 
 `npm run dev`
 Nu bör följande utskrift synas:
+
 [nodemon] 3.1.10
+
 [nodemon] to restart at any time, enter `rs`
+
 [nodemon] watching path(s): _._
+
 [nodemon] watching extensions: js,mjs,cjs,json
+
 [nodemon] starting `node src/server.mjs`
+
 Server is up and running on http://localhost:5001 in development mode
 
 Nu är allt klart, projektmallen fungerar🎉
