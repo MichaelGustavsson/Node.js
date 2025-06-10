@@ -1,5 +1,6 @@
 import crypto from 'crypto';
 import { db } from '../db/database.mjs';
+import ManufacturerRepository from './manufactures-repository.mjs';
 
 export default class VehicleRepository {
   async add(vehicle) {
@@ -18,7 +19,6 @@ export default class VehicleRepository {
     const make = await db.get('SELECT * FROM manufacturers WHERE name=?', [
       manufacturer,
     ]);
-    console.log(make);
 
     // Steg 2.  Är att lägga en ny bil med id fångat i steg 1.
     const id = crypto.randomUUID().replaceAll('-', '');

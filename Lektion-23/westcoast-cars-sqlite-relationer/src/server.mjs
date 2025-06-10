@@ -1,10 +1,12 @@
 import { app } from './app.mjs';
 import errorHandler from './middleware/errorHandler.mjs';
 import vehiclesRouter from './routes/vehicles-routes.mjs';
+import manufacturersRouter from './routes/manufacturers-routes.mjs';
 
 const PORT = process.env.PORT || 5002;
 
 app.use('/api/v1/vehicles', vehiclesRouter);
+app.use('/api/v1/manufacturers', manufacturersRouter);
 
 app.use(errorHandler);
 

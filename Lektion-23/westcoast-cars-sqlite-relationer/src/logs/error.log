@@ -1,0 +1,3 @@
+Method: GET Url: /api/v1/manufacturers/a9b5a7cb757441298be333be67b4eee8 Date: 2025-06-10 Time: 13:12:25 Success: false - Message: Class constructor ManufacturerRepository cannot be invoked without 'new'
+Method: GET Url: /api/v1/manufacturers/a9b5a7cb757441298be333be67b4eee8 Date: 2025-06-10 Time: 13:12:44 Success: false - Message: (intermediate value).findManufacturer is not a function
+Method: POST Url: /api/v1/vehicles Date: 2025-06-10 Time: 15:14:01 Success: false - Message: SQLITE_CONSTRAINT: NOT NULL constraint failed: vehicles.fuelType
