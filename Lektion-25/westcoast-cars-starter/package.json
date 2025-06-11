@@ -1,0 +1,25 @@
+{
+  "name": "node-express-template",
+  "version": "1.0.0",
+  "description": "A template for creating a basic node express api",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node src/server.mjs",
+    "dev": "nodemon src/server.mjs"
+  },
+  "keywords": [],
+  "author": "Michael Gustavsson",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.17.0",
+    "mongoose": "^8.15.1",
+    "validator": "^13.15.15"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

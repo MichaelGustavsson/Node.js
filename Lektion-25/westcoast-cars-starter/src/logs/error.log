@@ -1,0 +1,10 @@
+Method: GET Url: /api/v1/vehicles/regno/BBB123 Date: 2025-06-10 Time: 11:45:07 Success: false - Message: Cannot read properties of undefined (reading 'regno')
+Method: POST Url: /api/v1/vehicles Date: 2025-06-10 Time: 11:56:21 Success: false - Message: Vehicle validation failed: fuelType: `Gödsel` is not a valid enum value for path `fuelType`.
+Method: POST Url: /api/v1/vehicles Date: 2025-06-10 Time: 12:01:36 Success: false - Message: Vehicle validation failed: fuelType: `Gödsel` is not a valid enum value for path `fuelType`.
+Method: POST Url: /api/v1/users Date: 2025-06-11 Time: 10:37:59 Success: false - Message: User validation failed: email: Ange en giltig e-postadress
+Method: POST Url: /api/v1/users Date: 2025-06-11 Time: 10:38:48 Success: false - Message: User validation failed: email: Ange en giltig e-postadress
+Method: POST Url: /api/v1/auth Date: 2025-06-11 Time: 11:18:25 Success: false - Message: e-post och eller lösenord är felaktigt
+Method: POST Url: /api/v1/auth Date: 2025-06-11 Time: 11:18:46 Success: false - Message: e-post och eller lösenord saknas
+Method: POST Url: /api/v1/auth Date: 2025-06-11 Time: 11:19:03 Success: false - Message: e-post och eller lösenord saknas
+Method: POST Url: /api/v1/users Date: 2025-06-11 Time: 11:20:03 Success: false - Message: E11000 duplicate key error collection: westcoast-cars.users index: email_1 dup key: { email: "malin.gustavsson@gmail.com" }
+Method: POST Url: /api/v1/auth Date: 2025-06-11 Time: 11:21:06 Success: false - Message: e-post och eller lösenord är felaktigt
