@@ -1,0 +1,20 @@
+Method: GET Url: /api/v1/vehicles/regno/BBB123 Date: 2025-06-10 Time: 11:45:07 Success: false - Message: Cannot read properties of undefined (reading 'regno')
+Method: POST Url: /api/v1/vehicles Date: 2025-06-10 Time: 11:56:21 Success: false - Message: Vehicle validation failed: fuelType: `Gödsel` is not a valid enum value for path `fuelType`.
+Method: POST Url: /api/v1/vehicles Date: 2025-06-10 Time: 12:01:36 Success: false - Message: Vehicle validation failed: fuelType: `Gödsel` is not a valid enum value for path `fuelType`.
+Method: POST Url: /api/v1/users Date: 2025-06-11 Time: 10:37:59 Success: false - Message: User validation failed: email: Ange en giltig e-postadress
+Method: POST Url: /api/v1/users Date: 2025-06-11 Time: 10:38:48 Success: false - Message: User validation failed: email: Ange en giltig e-postadress
+Method: POST Url: /api/v1/auth Date: 2025-06-11 Time: 11:18:25 Success: false - Message: e-post och eller lösenord är felaktigt
+Method: POST Url: /api/v1/auth Date: 2025-06-11 Time: 11:18:46 Success: false - Message: e-post och eller lösenord saknas
+Method: POST Url: /api/v1/auth Date: 2025-06-11 Time: 11:19:03 Success: false - Message: e-post och eller lösenord saknas
+Method: POST Url: /api/v1/users Date: 2025-06-11 Time: 11:20:03 Success: false - Message: E11000 duplicate key error collection: westcoast-cars.users index: email_1 dup key: { email: "malin.gustavsson@gmail.com" }
+Method: POST Url: /api/v1/auth Date: 2025-06-11 Time: 11:21:06 Success: false - Message: e-post och eller lösenord är felaktigt
+Method: POST Url: /api/v1/users Date: 2025-06-12 Time: 09:15:47 Success: false - Message: User validation failed: password: Lösenord måste anges
+Method: POST Url: /api/v1/users Date: 2025-06-12 Time: 09:15:59 Success: false - Message: User validation failed: password: Lösenord måste anges
+Method: GET Url: /api/v1/vehicles Date: 2025-06-12 Time: 09:31:55 Success: false - Message: Du måste vara inloggad för att nå resursen
+Method: GET Url: /api/v1/vehicles Date: 2025-06-12 Time: 09:50:49 Success: false - Message: Du måste vara inloggad för att nå resursen
+Method: GET Url: /api/v1/vehicles Date: 2025-06-12 Time: 09:59:03 Success: false - Message: invalid signature
+Method: POST Url: /api/v1/vehicles Date: 2025-06-12 Time: 10:56:44 Success: false - Message: Du måste vara inloggad för att nå resursen
+Method: POST Url: /api/v1/vehicles Date: 2025-06-12 Time: 10:57:10 Success: false - Message: Du har inte behörighet till resursen
+Method: GET Url: /api/v1/vehicles Date: 2025-06-12 Time: 11:07:34 Success: false - Message: Du måste vara inloggad för att nå resursen
+Method: GET Url: /api/v1/vehicles Date: 2025-06-12 Time: 11:11:10 Success: false - Message: Du måste vara inloggad för att nå resursen
+Method: GET Url: /api/v1/vehicles Date: 2025-06-12 Time: 11:43:38 Success: false - Message: Du har inte behörighet till resursen
