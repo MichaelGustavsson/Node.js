@@ -11,11 +11,13 @@ export default class ManufacturerRepository {
 
     await this.db.open();
 
-    await this.db.execute(
-      'INSERT INTO manufacturers(id, name) VALUES(?,?)',
+    const result = await this.db.execute(
+      'INSERT INTO manufacturers(id, name) VALUES($1,$2) RETURNING *',
       Object.values(manufacturer)
     );
     await this.db.close();
+
+    return result.rows;
   }
 
   async list() {}
@@ -23,10 +25,10 @@ export default class ManufacturerRepository {
   async find(criteria) {
     await this.db.open();
     const result = await this.db.execute(
-      'SELECT * FROM manufacturers WHERE UPPER(name)=?',
-      criteria.toUpperCase()
+      'SELECT * FROM manufacturers WHERE UPPER(name)=$1',
+      [criteria.toUpperCase()]
     );
     await this.db.close();
-    return result;
+    return result.rows;
   }
 }

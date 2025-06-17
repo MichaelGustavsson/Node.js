@@ -3,9 +3,8 @@ import VehicleRepository from '../repositories/vehicles-repository.mjs';
 import AppError from '../models/appError.mjs';
 
 export const addVehicle = catchErrorAsync(async (req, res, next) => {
-  let vehicle = await new VehicleRepository().add(req.body);
-
-  vehicle = await new VehicleRepository().find(vehicle.id);
+  const id = await new VehicleRepository().add(req.body);
+  const vehicle = await new VehicleRepository().find(id);
 
   res
     .status(201)

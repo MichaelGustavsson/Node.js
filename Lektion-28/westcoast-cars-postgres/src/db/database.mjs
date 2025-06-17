@@ -1,21 +1,19 @@
-import mysql from 'mysql2/promise';
+import { Client } from 'pg';
 
 export default class Database {
   constructor() {
-    this.databaseName = process.env.DB_NAME;
-    this.connection = undefined;
+    this.connection = new Client({
+      user: process.env.PG_USER,
+      password: process.env.PG_PASSWORD,
+      host: 'localhost',
+      port: process.env.PG_PORT,
+      database: process.env.DB_NAME,
+    });
   }
 
   // Metod som öppnar databasen...
   async open() {
-    this.connection = await mysql.createConnection({
-      user: process.env.MYSQL_USER,
-      password: process.env.MYSQL_PASSWORD,
-    });
-
-    await this.connection.query(
-      'CREATE DATABASE IF NOT EXISTS ' + this.databaseName
-    );
+    await this.connection.connect();
   }
 
   async close() {
@@ -24,16 +22,6 @@ export default class Database {
 
   // Generell metod för att exekvera frågor...
   async execute(sql, args) {
-    await this.connection.query('USE ' + this.databaseName);
-
-    if (!args) {
-      const [result] = await this.connection.query(sql);
-      return result;
-    }
-
-    const [result] = await this.connection.query(sql, args);
-    // const [result, fields] = await this.connection.query(sql, args);
-
-    return result;
+    return await this.connection.query(sql, args);
   }
 }

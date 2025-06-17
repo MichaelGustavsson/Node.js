@@ -12,13 +12,13 @@ export default class FuelTypeRepository {
     await this.db.open();
 
     const result = await this.db.execute(
-      'INSERT INTO fuelTypes(id, fuelType) VALUES(?,?)',
+      'INSERT INTO fuelTypes(id, fuelType) VALUES($1,$2) RETURNING *',
       Object.values(fuelType)
     );
 
     await this.db.close();
 
-    return result;
+    return result.rows;
   }
 
   async list() {
@@ -31,9 +31,9 @@ export default class FuelTypeRepository {
 
   async find(criteria) {
     await this.db.open();
-    const sql = 'SELECT * FROM fuelTypes WHERE UPPER(fuelType)=?';
-    const result = await this.db.execute(sql, criteria.toUpperCase());
+    const sql = 'SELECT * FROM fuelTypes WHERE UPPER(fuelType)=$1';
+    const result = await this.db.execute(sql, [criteria.toUpperCase()]);
     await this.db.close();
-    return result;
+    return result.rows;
   }
 }

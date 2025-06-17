@@ -9,3 +9,9 @@ Method: POST Url: /api/v1/vehicles Date: 2025-06-17 Time: 09:34:43 Success: fals
 Method: POST Url: /api/v1/vehicles Date: 2025-06-17 Time: 09:35:45 Success: false - Message: Assignment to constant variable.
 Method: POST Url: /api/v1/vehicles/fueltypes Date: 2025-06-17 Time: 09:43:27 Success: false - Message: Duplicate entry 'Bensin' for key 'fuelTypes.fuelType'
 Method: POST Url: /api/v1/vehicles/manufacturers Date: 2025-06-17 Time: 09:43:43 Success: false - Message: Duplicate entry 'Ford' for key 'manufacturers.name'
+Method: POST Url: /api/v1/vehicles/fueltypes Date: 2025-06-17 Time: 11:07:55 Success: false - Message: syntax error at or near ","
+Method: POST Url: /api/v1/vehicles/fueltypes Date: 2025-06-17 Time: 11:09:16 Success: false - Message: Query values must be an array
+Method: POST Url: /api/v1/vehicles/fueltypes Date: 2025-06-17 Time: 11:13:03 Success: false - Message: duplicate key value violates unique constraint "fueltypes_fueltype_key"
+Method: POST Url: /api/v1/vehicles/manufacturers Date: 2025-06-17 Time: 11:19:58 Success: false - Message: duplicate key value violates unique constraint "manufacturers_name_key"
+Method: POST Url: /api/v1/vehicles Date: 2025-06-17 Time: 11:43:43 Success: false - Message: Query values must be an array
+Method: POST Url: /api/v1/vehicles Date: 2025-06-17 Time: 11:45:28 Success: false - Message: Query values must be an array

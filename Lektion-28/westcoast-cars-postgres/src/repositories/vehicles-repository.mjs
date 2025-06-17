@@ -43,14 +43,14 @@ export default class VehicleRepository {
     ];
 
     // 4. Spara bilen till tabellen...
-    await this.db.execute(
+    const result = await this.db.execute(
       `INSERT INTO vehicles(id,registrationNumber,manufacturerId,model,modelYear,mileage,color,fuelTypeId)
-      VALUES(?,?,?,?,?,?,?,?)`,
+      VALUES($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id`,
       args
     );
 
     await this.db.close();
-    return vehicle;
+    return result.rows[0].id;
   }
 
   // Ta bort en bil...
@@ -62,14 +62,14 @@ export default class VehicleRepository {
   async find(id) {
     await this.db.open();
 
-    const sql = `SELECT v.id, registrationNumber, m.name, model,modelYear,mileage,color,f.fueltype 
+    const sql = `SELECT v.id, registrationNumber, m.name AS manufacturer, model,modelYear,mileage,color,f.fueltype 
       FROM vehicles AS v INNER JOIN manufacturers AS m ON v.manufacturerId = m.id
-      INNER JOIN fuelTypes AS f ON v.fuelTypeId = f.id  WHERE v.id=?`;
+      INNER JOIN fuelTypes AS f ON v.fuelTypeId = f.id  WHERE v.id=$1`;
 
-    const result = await this.db.execute(sql, id);
+    const result = await this.db.execute(sql, [id]);
     await this.db.close();
 
-    return result;
+    return result.rows[0];
   }
 
   // Hämta alla dokument över vilka bilar som finns i systemet...
