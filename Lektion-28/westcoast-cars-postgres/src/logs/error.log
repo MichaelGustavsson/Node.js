@@ -1,0 +1,11 @@
+Method: POST Url: /api/v1/vehicles Date: 2025-06-16 Time: 14:43:17 Success: false - Message: Duplicate entry 'AAA111' for key 'vehicles.registrationNumber'
+Method: POST Url: /api/v1/vehicles Date: 2025-06-16 Time: 14:47:09 Success: false - Message: Assignment to constant variable.
+Method: POST Url: /api/v1/vehicles Date: 2025-06-17 Time: 09:28:25 Success: false - Message: Assignment to constant variable.
+Method: POST Url: /api/v1/vehicles Date: 2025-06-17 Time: 09:29:03 Success: false - Message: Assignment to constant variable.
+Method: POST Url: /api/v1/vehicles Date: 2025-06-17 Time: 09:30:05 Success: false - Message: Assignment to constant variable.
+Method: POST Url: /api/v1/vehicles Date: 2025-06-17 Time: 09:33:14 Success: false - Message: Incorrect integer value: 'Mustang' for column 'modelYear' at row 1
+Method: POST Url: /api/v1/vehicles Date: 2025-06-17 Time: 09:33:41 Success: false - Message: Assignment to constant variable.
+Method: POST Url: /api/v1/vehicles Date: 2025-06-17 Time: 09:34:43 Success: false - Message: Duplicate entry 'AAA111' for key 'vehicles.registrationNumber'
+Method: POST Url: /api/v1/vehicles Date: 2025-06-17 Time: 09:35:45 Success: false - Message: Assignment to constant variable.
+Method: POST Url: /api/v1/vehicles/fueltypes Date: 2025-06-17 Time: 09:43:27 Success: false - Message: Duplicate entry 'Bensin' for key 'fuelTypes.fuelType'
+Method: POST Url: /api/v1/vehicles/manufacturers Date: 2025-06-17 Time: 09:43:43 Success: false - Message: Duplicate entry 'Ford' for key 'manufacturers.name'
