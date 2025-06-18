@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Manufacturer {
+  id       String    @id @default(uuid())
+  name     String    @unique
+  vehicles Vehicle[]
+}
+
+model Fueltype {
+  id       String    @id @default(uuid())
+  name     String    @unique
+  vehicles Vehicle[]
+}
+
+model Vehicle {
+  id                 String        @id @default(uuid())
+  registrationNumber String        @unique
+  createdAt          DateTime      @default(now()) @updatedAt
+  model              String
+  modelYear          Int
+  mileage            Int
+  color              String
+  manufacturerId     String?
+  manufacturer       Manufacturer? @relation(fields: [manufacturerId], references: [id])
+  fueltype           Fueltype?     @relation(fields: [fueltypeId], references: [id])
+  fueltypeId         String?
+
+  @@index([modelYear, color])
+}
+
+model User {
+  id        String @id @default(uuid())
+  firstName String
+  lastName  String
+  email     String @unique
+  role      Role   @default(USER)
+}
+
+enum Role {
+  USER
+  SALES
+  MANAGER
+  ADMIN
+}
